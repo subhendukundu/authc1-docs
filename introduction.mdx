@@ -1,67 +1,42 @@
 ---
 title: "Introduction"
-description: "Welcome to the Mintlify Starter Kit"
+description: "Welcome to the Authentication API documentation"
 ---
 
-<Note>
-  Update the content in main branch of your docs repo, and your documentation page will automatically be updated. It's that simple!
-</Note>
+Our Authentication API is designed to provide a secure and easy way to authenticate and authorize users for your application. With our API, you can easily implement features such as sign up, login, password reset, email verification, third-party providers such as Google and Facebook and much more.
+
+In this documentation, you will find a comprehensive guide on how to use our API, including examples and best practices. We have also included a customization checklist to help you tailor the API to your specific needs.
 
 ## Getting Started
 
-Select from the following guides to learn more about how Mintlify can best suit your documentation.
+To get started, you can follow these simple steps:
+
+1. Create an Application: Create an application in our system by providing a name. This will give you an application_id and secret which you will use in all API calls.
+2. Integrate API: Integrate our API into your application. Use the application_id and secret to authenticate API calls and implement the API endpoints in your application.
+3. Customize Settings: Customize settings such as email verification, password policy, and more by updating the settings in your application.
+4. Test and Deploy: Test the API integration in your development environment, and then deploy to production.
+
+Select from the following guides to learn more about how to use our API and customize it to best suit your needs:
 
 <CardGroup>
-  <Card title="Development" icon="rectangle-terminal" href="/development">
-    Run on your computer to see changes locally
+  <Card title="API Reference" icon="rectangle-terminal" href="/api-reference">
+    Learn about the various endpoints available in our API
   </Card>
-  <Card title="Global Settings" icon="sliders" href="https://mintlify.com/docs/settings/global">
-    Customizing the theme, branding, and other global configurations
+  <Card title="Implementation Guide" icon="sliders" href="/implementation-guide">
+    Learn how to implement our API in your application
   </Card>
-  <Card title="Page Titles and Metadata" icon="heading" href="https://mintlify.com/docs/settings/page">
-    Setting the title and metadata for navigation and SEO
-  </Card>
-  <Card title="Writing Content" icon="pen-nib" href="https://mintlify.com/docs/components/overview">
-    Introduction on how to add and edit content
-  </Card>
-  <Card title="Learn More" icon="ellipsis" href="/resources">
-    See more in the resources page
+  <Card title="Best Practices" icon="heading" href="/best-practices">
+    Tips and best practices to ensure the security and performance of your implementation
   </Card>
 </CardGroup>
 
 ## Customization Checklist
 
-Learn more about you can fully customize the starter template for your own documentation
+To fully customize the API to your specific needs, please review the following checklist:
 
 <AccordionGroup>
-  <Accordion title="Change name">Update the `name` property in `mint.json` to the name of your company or product</Accordion>
-  <Accordion title="Customize the branding">
-    Branding mostly happens in the `mint.json` file. You can learn more about all available [configuration properties](https://mintlify.com/docs/settings/global).
-
-    #### Update the logo
-
-    Update `logo` folder with the light and dark version of your logo (can be svg or png).
-    <Note>Make sure that the path matches the values set in `logo` of `mint.json`</Note>
-
-    #### Customize the colors
-
-    Populate the `colors` object with colors that match your brand
-
-    #### Update the favicon
-
-    Change the `favicon.png` with an image of the favicon
-
-    #### Update footer social icons
-
-    Update `footerSocials` with the right `[platform]: [url]` key-value pair
-  </Accordion>
-  <Accordion title="Update the anchors">Update the `anchors` array in `mint.json` with the links that you want to emphasize</Accordion>
-  <Accordion title="Update or remove the API Reference">
-    Either update the pages in `api-reference` or remove it entirely
-    <Note>If removing the API Reference, make sure to also remove it from the `anchors` and `navigation` from `mint.json`</Note>
-  </Accordion>
-  <Accordion title="Update the topbar navigation items">
-    Update the `topbarCtaButton` and `topbarLinks` properties in `mint.json` to the links that matter most
-    <Tip>The `topbarCtaButton` will receive the most number of clicks</Tip>
-  </Accordion>
+  <Accordion title="Customize the error messages">Customize the error messages returned by the API to match your application's language and style</Accordion>
+  <Accordion title="Customize the email templates">Customize the email templates used for email verification and password reset to match your application's branding and style</Accordion>
+  <Accordion title="Customize the expiration time">Customize the expiration time for tokens and sessions to match your application's security requirements</Accordion>
 </AccordionGroup>
+As always, if you have any questions or need assistance, please don't hesitate to reach out to us.

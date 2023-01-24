@@ -1,0 +1,104 @@
+---
+title: "Confirm Email with Link"
+api: "GET https://authc1.com/api/v1/confirm/email"
+description: "The Confirm Email API allows users to confirm their email address on the AuthC1 platform by clicking on the link sent to their email. To use the API, you will need to make a GET request to the endpoint with the required parameters in the query."
+---
+
+### Headers
+
+<ParamField header="X-Authc1-Id" type="string" required>
+  Application Id
+</ParamField>
+
+### Query Params
+
+<ParamField query="code" type="string" required>
+  The code sent to the user's email
+</ParamField>
+<ParamField query="session_id" type="string" required>
+  The session id associated with the user's email
+</ParamField>
+
+<RequestExample>
+```bash cURL
+curl --request GET \
+--url https://authc1.com/api/v1/confirm/email?code=verification_code&session_id=session_id \
+--header 'X-Authc1-Id: your_application_id'
+```
+```javascript JavaScript
+// Confirm email using link
+const queryString = `?code=verification_code&session_id=session_id`
+const response = await fetch(`https://authc1.com/api/v1/confirm/email${queryString}`, {
+    method: 'GET',
+    headers: {
+    'X-Authc1-Id': 'your_application_id'
+    }
+})
+const html = await response.text()
+console.log(html)
+```
+```python Python
+import requests
+query_string = {'code': 'verification_code', 'session_id': 'session_id'}
+headers = {'X-Authc1-Id': 'your_application_id'}
+response = requests.get('https://authc1.com/api/v1/confirm/email', headers=headers, params=query_string)
+print(response.text)
+```
+```go Go
+package main
+
+import (
+    "fmt"
+    "net/http"
+)
+
+func main() {
+    req, _ := http.NewRequest("GET", "https://authc1.com/api/v1/confirm/email?code=verification_code&session_id=session_id", nil)
+    req.Header.Set("X-Authc1-Id", "your_application_id")
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    if err != nil {
+    fmt.Printf("The HTTP request failed with error %s\n", err)
+    } else {
+    fmt.Println("Email confirmed")
+    }
+}
+
+````
+
+```rust Rust
+use reqwest::Client;
+
+let client = Client::new();
+let resp = client.get("https://authc1.com/api/v1/confirm/email?code=verification_code&session_id=session_id")
+            .header("X-Authc1-Id", "your_application_id")
+            .send()
+            .unwrap();
+println!("Email confirmed")
+```
+
+</RequestExample>
+
+<ResponseExample>
+```html Response
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Email Verification Success</title>
+  </head>
+  <body>
+    <h1>Email Verified Successfully</h1>
+    <p>Your email has been successfully verified. You can now go back to the application.</p>
+  </body>
+</html>
+```
+</ResponseExample>
+
+### Error Codes
+
+- `400 Bad Request`: The request was malformed or missing required parameters.
+- `401 Unauthorized`: The provided `X-Authc1-Id` is invalid.
+- `404 Not Found`: The provided email address or token could not be found in our system.
+- `410 Gone`: The provided token has expired.
+- `429 Too Many Requests`: The user has sent too many requests.
+- `500`: Error during registration

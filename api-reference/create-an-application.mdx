@@ -1,0 +1,43 @@
+---
+title: "Create an Application"
+---
+
+Before you can use our authentication and authorization services, you'll need to create an application in our system.
+
+## Prerequisites
+
+- A registered account on our platform (authc1.com)
+
+## Steps
+
+1. Log in to the [Developer Dashboard](https://developers.authc1.com/dashboard) using your registered account.
+
+2. Click on the "New Application" button to create a new application.
+
+3. Fill in the required fields:
+   - **Name**: The name of your application (e.g. My App)
+   - **Redirect URI**: The URI that the user will be redirected to after they have successfully logged in or granted your application access. (e.g. https://myapp.com/callback)
+   - **Allowed Login Methods**: Select the login methods that you want to enable for your application (e.g. Email, Phone, Google, etc.)
+   - **Expires In**: The number of seconds that the access token will be valid for.
+   - **Session Expiration Time**: The number of seconds that the session will be valid for.
+   - **Token Expiration Time**: The number of seconds that the token will be valid for.
+   - **Password Reset Enabled**: Enable or disable password reset feature.
+   - **Account Deletion Enabled**: Enable or disable account deletion feature.
+   - **Failed Login Attempts**: Number of failed login attempts before the user account is locked.
+   - **Email Verification Enabled**: Enable or disable email verification feature.
+   - **Email Verification Method**: Choose between code or link for the email verification method.
+
+4. Click on the "Create" button to create your application.
+
+5. Once your application is created, you'll be taken to the application's settings page where you can view and manage your application's details and settings.
+
+<Info>
+  Make sure to keep your application's credentials (client ID and secret) safe and never share them with anyone.
+</Info>
+
+## Next Steps
+
+<Info>
+- [Authenticate Users](/authenticate-users) to learn how to authenticate users using our platform.
+- [Authorize Users](/authorize-users) to learn how to authorize users and check their permissions.
+</Info>

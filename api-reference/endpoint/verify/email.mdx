@@ -1,0 +1,118 @@
+---
+title: "Verify Email"
+api: "POST https://authc1.com/api/v1/verify"
+description: "The Verify Email API allows users to verify their email address. To use the API, you will need to make a POST request to the endpoint with the required parameters in the request body."
+---
+### Headers
+
+<ParamField header="X-Authc1-Id" type="string" required>
+  Application Id
+</ParamField>
+
+### Body Params
+
+<ParamField body="id_token" type="string" required>
+  The user's id_token
+</ParamField>
+
+<RequestExample>
+```bash cURL
+curl --request POST \
+--url https://authc1.com/api/v1/verify \
+--header 'Content-Type: application/json' \
+--data '{
+    "id_token": "string"
+}'
+```
+```typescript Typescript
+// Verify a user's email
+const data = {
+    id_token: 'id_token_received'
+}
+const response = await fetch('https://authc1.com/api/v1/verify', {
+    method: 'POST',
+    headers: {
+    'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+})
+const json = await response.json()
+console.log(json)
+
+````
+```python Python
+import requests
+
+data = {
+    'id_token': 'id_token_received'
+}
+headers = {'Content-Type': 'application/json'}
+response = requests.post('https://authc1.com/api/v1/verify', json=data, headers=headers)
+print(response.json())
+````
+
+```go Go
+package main
+
+import (
+    "bytes"
+    "encoding/json"
+    "fmt"
+    "net/http"
+)
+
+func main() {
+    data := map[string]string{
+    "id_token": "your_id_token"
+    }
+
+    jsonValue, _ := json.Marshal(data)
+
+    req, _ := http.NewRequest("POST", "https://authc1.com/api/v1/verify", bytes.NewBuffer(jsonValue))
+    req.Header.Set("X-Authc1-Id", "your_application_id")
+    req.Header.Set("Content-Type", "application/json")
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    if err != nil {
+    fmt.Printf("The HTTP request failed with error %s\n", err)
+    } else {
+    var jsonData map[string]interface{}
+    json.NewDecoder(resp.Body).Decode(&jsonData)
+    fmt.Println(jsonData)
+    }
+}
+```
+
+```rust Rust
+use reqwest::Client;
+
+let data = json!({"id_token": "your_id_token"});
+let client = Client::new();
+let resp = client.post("https://authc1.com/api/v1/verify")
+            .header("X-Authc1-Id", "your_application_id")
+            .json(&data)
+            .send()
+            .unwrap();
+let json_resp: serde_json::Value = resp.json().unwrap();
+println!("{}", json_resp);
+
+```
+</RequestExample>
+
+<ResponseExample>
+  ```json Response
+  {
+    "email": 'john.doe@example.com'
+  }
+  ```
+</ResponseExample>
+
+### Error Codes
+
+- `400 Bad Request`: The request was malformed or missing required parameters.
+- `401 Unauthorized`: The provided `X-Authc1-Id` is invalid.
+- `404 Not Found`: The provided email address or token could not be found in our system.
+- `410 Gone`: The provided token has expired.
+- `429 Too Many Requests`: The user has sent too many requests
+
+<Info>Make sure to handle these error codes properly in your application.</Info>

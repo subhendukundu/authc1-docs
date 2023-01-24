@@ -1,22 +1,26 @@
 ---
 title: "Authentication"
-description: "Example overview page before API endpoints"
+description: "Overview of how to authenticate requests to the AuthC1 platform"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et eros iaculis tortor dapibus cursus. Curabitur quis sapien nec tortor dictum gravida.
+The AuthC1 platform uses two types of authentication: application authentication and user authentication.
 
-```bash
-'Authorization': 'Token <team_token>'
-```
+### Application Authentication
 
-## API Tokens
+All Authc1 APIs require that you authenticate your application by including a unique `X-Authc1-Id` header in each request.
+This header is used to identify your application and ensure that it has the proper permissions to access the requested resources.
+You can find your application's `X-Authc1-Id` in the [Authc1 Developer Console](https://developers.authc1.com/applications)
 
-Nullam convallis mauris at nunc consectetur, ac imperdiet leo rutrum. Maecenas cursus purus a pellentesque blandit. Pellentesque vitae lacinia libero, non mollis metus.
+## User Authentication
 
-Nam id ullamcorper urna, at rutrum enim. [Maecenas vulputate](/introduction) vehicula libero, vitae sodales augue pretium nec. Quisque a magna tempor, semper risus vel, fermentum nunc. Pellentesque fermentum interdum ex, eu convallis massa blandit sed. Aliquam bibendum ipsum vel laoreet auctor.
+To authenticate users, AuthC1 uses a token-based authentication system. When a user logs in, they will be given a `id_token` and `access_token`. These tokens must be included in the headers of every API call that requires user authentication.
 
-### Permissions
+### Token Expiration
 
-Etiam lobortis ut odio ut fermentum. Nunc odio velit, sollicitudin at consectetur id, tristique eget turpis. Aliquam at risus vitae dolor sodales venenatis. In hac habitasse platea dictumst.
+Both the `id_token` and `access_token` have a limited lifespan and will expire after a certain amount of time. When a token expires, the API will return a `401 Unauthorized` error.
 
-Aenean consequat diam eget mollis fermentum. [Quisque eu malesuada](/introduction) felis, non dignissim libero.
+### Refreshing Tokens
+
+To avoid having to constantly prompt the user to log in, AuthC1 provides a way for tokens to be refreshed. When a token is close to its expiration date, the application can make a request to the AuthC1 `refresh_token` endpoint to receive a new token.
+
+It is important to note that the `refresh_token` endpoint will only return new tokens if the original `access_token` is still valid. If the `access_token` is expired, the user will need to log in again to receive new tokens.

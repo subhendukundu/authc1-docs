@@ -1,9 +1,8 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Authc1 Docs",
   "logo": {
-    "dark": "/logo/dark.png",
-    "light": "/logo/light.png"
+    "dark": "/logo/authc1-logo.svg",
+    "light": "/logo/authc1-logo.svg"
   },
   "favicon": "/favicon.png",
   "colors": {
@@ -14,12 +13,12 @@
   "topbarLinks": [
     {
       "name": "Documentation",
-      "url": "https://mintlify.com/docs"
+      "url": "/docs"
     }
   ],
   "topbarCtaButton": {
     "name": "Get Started",
-    "url": "https://github.com/mintlify/starter"
+    "url": "https://github.com/subhendukundu/authc1"
   },
   "anchors": [
     {
@@ -30,40 +29,58 @@
     {
       "name": "Changelog",
       "icon": "list",
-      "url": "https://mintlify.com"
-    },
-    {
-      "name": "Community",
-      "icon": "discord",
-      "url": "https://mintlify.com/community"
+      "url": "https://github.com/subhendukundu/authc1"
     }
   ],
   "navigation": [
     {
       "group": "Home",
-      "pages": ["introduction", "development"]
+      "pages": [
+        "introduction",
+        "getting-started"
+      ]
     },
     {
       "group": "Learn More",
-      "pages": ["features", "resources"]
-    },
-    {
-      "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
-    },
-    {
-      "group": "Endpoint Examples",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete"
+        "features"
+      ]
+    },
+    {
+      "group": "Guide",
+      "pages": [
+        "api-reference/create-an-application",
+        "api-reference/authentication"
+      ]
+    },
+    {
+      "group": "Register",
+      "pages": [
+        "api-reference/endpoint/register/email"
+      ]
+    },
+    {
+      "group": "Verify",
+      "pages": [
+        "api-reference/endpoint/verify/email"
+      ]
+    },
+    {
+      "group": "Confirm",
+      "pages": [
+        "api-reference/endpoint/confirm/email-with-code",
+        "api-reference/endpoint/confirm/email-with-link"
+      ]
+    },
+    {
+      "group": "Login",
+      "pages": [
+        "api-reference/endpoint/login/email"
       ]
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/authc1",
+    "github": "https://github.com/subhendukundu/authc1"
   }
 }

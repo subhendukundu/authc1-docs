@@ -1,32 +1,44 @@
 ---
 title: "Features"
-description: "Upgrades you can expect from the platform"
+description: "Learn about the features of AuthC1"
 ---
 
-## Optimized to Convert Users
+## Email and Password Authentication
 
-Everything is heavily optimized for SEO and conversion
+AuthC1 supports traditional email and password authentication out of the box. Users can register for an account using their email and password, and then use those credentials to log in. Our API also supports password reset and email verification.
 
-![Conversion](/images/conversion.png)
+## Social Authentication
 
-## High-performing Search
+In addition to email and password, AuthC1 also supports social authentication via providers such as Google, Facebook, Twitter, and Apple. This allows users to register and login using their existing social media accounts.
 
-Ultra-fast search comes out of the box and re-indexes all of the documentation on every update
+## Phone Number Authentication
 
-![Search](/images/search.png)
+AuthC1 also supports phone number authentication, where users can register and login using their phone number and a verification code sent via SMS. This is a convenient and secure option for users who may not have access to email or social media accounts.
 
-## Interactive API Playground
+## Multi-Factor Authentication (MFA)
 
-Interactive API Playground pages for users to explore the endpoints
+AuthC1 provides support for multi-factor authentication (MFA) which adds an additional layer of security to user accounts. This can include options such as SMS verification, Google Authenticator, and biometric authentication.
 
-![API Playground](/images/playground.png)
+## Token-based Authentication
 
-## Light and Dark Mode
+AuthC1 uses JSON Web Tokens (JWT) for token-based authentication. When a user logs in, they receive an id_token and an access_token. The id_token contains user information and can be used to authenticate the user, while the access_token can be used to make API calls on the user's behalf. Tokens have a configurable expiration time, and can be easily refreshed using the refresh_token.
 
-Check out light and dark mode offered out of the box and beautiful for every bit of content and components
+## Customizable Authentication Workflow
 
-![Light Mode](/images/light.png)
+AuthC1 is designed to be flexible and customizable. You can easily customize the authentication workflow to fit your needs. For example, you can add additional fields to the registration form, or add custom logic to handle different types of errors.
 
-## Analytics Built to Understand Users
+## Easy to Integrate
 
-Analytics is built into the platform to help you understand what page users are interacting with, where they are converting, and where they are dropping off
+AuthC1 is easy to integrate with existing systems and applications, making it a great choice for developers looking to add robust authentication and authorization capabilities to their projects.
+
+## Scalable and Secure
+
+AuthC1 is built to handle large amounts of users and requests. We use industry standard security practices to ensure that your user's data is safe. All data is encrypted in transit and at rest, and our API is built to be resistant to common attack methods like brute force and SQL injection.
+
+## SDKs and Plugins
+
+We have SDKs and plugins available for the most popular programming languages and frameworks. This makes integrating AuthC1 into your application quick and easy. We also have a variety of plugins available for popular web frameworks like React, Angular, and Vue.
+
+## Extensive Documentations
+
+We have extensive documentation available for all features of AuthC1. We also have code snippets available for the most popular programming languages, so you can get started quickly.
